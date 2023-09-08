@@ -1,0 +1,14 @@
+name: Validate Your Protobuf Schema
+on:
+    push:
+        paths:
+            - 'proto/**'
+            - '.github/workflows/validate-protobuf.yml'
+jobs:
+    Validate-Protobuf-Schema:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Checkout
+              uses: actions/checkout@v2
+            - name: Protobuf Lint
+              run: docker run -v "$(pwd)/proto:/workspace" --workdir /workspace bufbuild/buf lint
