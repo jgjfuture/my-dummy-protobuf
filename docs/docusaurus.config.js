@@ -34,6 +34,14 @@ const config = {
 
   presets: [
     [
+      'docusaurus-protobuffet',
+      {
+        protobuffet: {
+          fileDescriptorsPath: './my-sample-scheme-docs.json'
+        }
+      }
+    ],
+    [
       'classic',
       /** @type {import('@docusaurus/preset-classic').Options} */
       ({
@@ -77,6 +85,12 @@ const config = {
             label: 'Tutorial',
           },
           {to: '/blog', label: 'Blog', position: 'left'},
+          {
+            to: 'protodocs/account/v1/addressbook.proto',
+            activeBasePath: 'protodocs',
+            label: 'Protodocs',
+            position: 'left',
+          },
           {
             href: 'https://github.com/facebook/docusaurus',
             label: 'GitHub',
