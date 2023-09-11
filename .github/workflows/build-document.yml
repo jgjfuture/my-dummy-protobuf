@@ -35,7 +35,7 @@ jobs:
               with:
                   name: docusaurus-documentation
                   path: ./docs/build
-    Deploy-Documentation:
+    Publish-Documentation:
         permissions:
             contents: write
         if: github.ref == 'refs/heads/main'
