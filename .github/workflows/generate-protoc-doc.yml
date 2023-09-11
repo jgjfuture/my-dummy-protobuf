@@ -1,0 +1,27 @@
+name: Generate Protobuf Documentation
+on:
+    push:
+        branches:
+            - main
+        paths:
+            - 'proto/**'
+            - '.github/workflows/generate-protoc-doc.yml'
+            - 'scripts/protoc-generate.sh'
+jobs:
+    Generate-Protobuf-Documentation:
+        permissions:
+            contents: write
+        runs-on: ubuntu-latest
+        steps:
+            - name: Checkout
+              uses: actions/checkout@v3
+            - name: Give Permission to Scripts
+              run: chmod +x ./scripts/protoc-generate.sh
+            - name: Generate Protobuf Documentation
+              run: ./scripts/protoc-generate.sh
+            - name: Commit and push files
+              run: |
+                git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"
+                git config --local user.name "github-actions[bot]"
+                git commit -a -m "generated protobuf documentation"
+                git push origin main
