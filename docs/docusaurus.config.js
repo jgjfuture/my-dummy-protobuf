@@ -86,7 +86,7 @@ const config = {
           },
           {to: '/blog', label: 'Blog', position: 'left'},
           {
-            to: 'protodocs/account/v1/addressbook.proto',
+            to: 'protodocs/sample/v1/address_book.proto',
             activeBasePath: 'protodocs',
             label: 'Protodocs',
             position: 'left',
