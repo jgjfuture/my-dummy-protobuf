@@ -1,4 +1,4 @@
-name: Docusaurus
+name: Deploy to GH Pages
 on:
     push:
         branches:
@@ -17,6 +17,7 @@ jobs:
               with:
                   node-version: '18.x'
                   cache: 'npm'
+                  cache-dependency-path: ./docs/package-lock.json
             - name: Install dependencies of Docusaurus
               run: |
                   cd docs
