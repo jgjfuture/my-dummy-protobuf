@@ -1,0 +1,54 @@
+name: Build Documentation
+on:
+    push:
+        paths:
+            - 'proto/**'
+            - '.github/workflows/build-document.yml'
+jobs:
+    Build-Documentation:
+        env:
+            DEPLOY_PRIME_URL: ${{ vars.DEPLOY_PRIME_URL }}
+            DEPLOY_BASE_URL: ${{ vars.DEPLOY_BASE_URL }}
+        runs-on: ubuntu-latest
+        steps:
+            - name: Checkout
+              uses: actions/checkout@v3
+            - name: Setup Node.js
+              uses: actions/setup-node@v3
+              with:
+                  node-version: '18.x'
+                  cache: 'npm'
+                  cache-dependency-path: ./docs/package-lock.json
+            - name: Install Dependencies
+              run: npm ci
+              working-directory: ./docs
+            - name: protoc-gen-doc
+              run: "bash scripts/protoc-generate.sh"
+            - name: Generate Docusaurus Proto Docs
+              run: npx docusaurus generate-proto-docs
+              working-directory: ./docs
+            - name: Build Documentation
+              run: npm run build
+              working-directory: ./docs
+            - name: Archive Documentation
+              uses: actions/upload-artifact@v3
+              with:
+                  name: docusaurus-documentation
+                  path: ./docs/build
+    Deploy-Documentation:
+        permissions:
+            contents: write
+        if: github.ref == 'refs/heads/main'
+        needs: Build-Documentation
+        runs-on: ubuntu-latest
+        steps:
+            - name: Download Built Documentation
+              uses: actions/download-artifact@v3
+              with:
+                  name: docusaurus-documentation
+                  path: built-document
+            - name: Publish-Docs
+              uses: peaceiris/actions-gh-pages@v3
+              with:
+                  github_token: ${{ secrets.GITHUB_TOKEN }}
+                  publish_dir: ./built-document
