@@ -25,7 +25,7 @@ jobs:
             - name: Generate Docusaurus Documatation
               run: |
                   cd docs
-                  npm docusaurus generate-proto-docs
+                  npx docusaurus generate-proto-docs
                   npm build
             - name: Deploy to GitHub Pages
               uses: peaceiris/actions-gh-pages@v3
