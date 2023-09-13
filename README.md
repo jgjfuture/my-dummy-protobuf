@@ -1,5 +1,7 @@
 # Proto Docusaurus Actions
 
+[![Build Documentation](https://github.com/jgjfuture/proto-docusaurus-actions/actions/workflows/build-document.yml/badge.svg)](https://github.com/jgjfuture/proto-docusaurus-actions/actions/workflows/build-document.yml)
+
 ## Overview
 
 When you create PR that includes changes of your Protocol Buffer schema files, then GitHub Actions Workflow will be triggered.
