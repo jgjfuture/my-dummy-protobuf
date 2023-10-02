@@ -12,3 +12,7 @@ jobs:
               uses: actions/checkout@v2
             - name: Protobuf Lint
               run: docker run -v "$(pwd)/proto:/workspace" --workdir /workspace bufbuild/buf lint
+            - name: Protobuf Breaking Change
+              run: |
+                git fetch -u origin main
+                docker run -v "$(pwd):/repository" --workdir /repository bufbuild/buf breaking --against '.git#branch=main'
