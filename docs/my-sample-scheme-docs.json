@@ -144,6 +144,54 @@
           ]
         },
         {
+          "name": "HelloRequest",
+          "longName": "HelloRequest",
+          "fullName": "sample.v1.HelloRequest",
+          "description": "",
+          "hasExtensions": false,
+          "hasFields": true,
+          "hasOneofs": false,
+          "extensions": [],
+          "fields": [
+            {
+              "name": "name",
+              "description": "The name of the person to greet.",
+              "label": "",
+              "type": "string",
+              "longType": "string",
+              "fullType": "string",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            }
+          ]
+        },
+        {
+          "name": "HelloResponse",
+          "longName": "HelloResponse",
+          "fullName": "sample.v1.HelloResponse",
+          "description": "",
+          "hasExtensions": false,
+          "hasFields": true,
+          "hasOneofs": false,
+          "extensions": [],
+          "fields": [
+            {
+              "name": "greeting",
+              "description": "The greeting.",
+              "label": "",
+              "type": "string",
+              "longType": "string",
+              "fullType": "string",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            }
+          ]
+        },
+        {
           "name": "Person",
           "longName": "Person",
           "fullName": "sample.v1.Person",
@@ -221,6 +269,18 @@
               "responseType": "GetAddressBookResponse",
               "responseLongType": "GetAddressBookResponse",
               "responseFullType": "sample.v1.GetAddressBookResponse",
+              "responseStreaming": false
+            },
+            {
+              "name": "Hello",
+              "description": "Say hello.",
+              "requestType": "HelloRequest",
+              "requestLongType": "HelloRequest",
+              "requestFullType": "sample.v1.HelloRequest",
+              "requestStreaming": false,
+              "responseType": "HelloResponse",
+              "responseLongType": "HelloResponse",
+              "responseFullType": "sample.v1.HelloResponse",
               "responseStreaming": false
             }
           ]
