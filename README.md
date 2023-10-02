@@ -1,6 +1,7 @@
 # Proto Docusaurus Actions
 
 [![Build Documentation](https://github.com/jgjfuture/proto-docusaurus-actions/actions/workflows/build-document.yml/badge.svg)](https://github.com/jgjfuture/proto-docusaurus-actions/actions/workflows/build-document.yml)
+[![Protocol Buffers Generate And Push Back](https://github.com/jgjfuture/my-dummy-protobuf/actions/workflows/protoc-pushback.yml/badge.svg)](https://github.com/jgjfuture/my-dummy-protobuf/actions/workflows/protoc-pushback.yml)
 
 ## Overview
 
